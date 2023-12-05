@@ -1,0 +1,94 @@
+$standard-padding: 0.5em;
+$bubble-border-radius: 17px;
+
+@mixin bot {
+  background: #393e46;
+  color: #f7f7f7;
+  align-self: flex-start;
+  display: flex;
+}
+
+@mixin user {
+  background: #e5dfdf;
+  color: #393e46;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  display: flex;
+}
+
+.message-container {
+  overflow-y: scroll;
+  margin-bottom: 2em;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message {
+    max-width: 400px;
+    padding: $standard-padding;
+    border-radius: $bubble-border-radius;
+    overflow-wrap: break-word;
+  }
+
+  .message img {
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    border-radius: 50%;
+  }
+
+  .user {
+    @include user;
+  }
+
+  .bot {
+    @include bot;
+  }
+
+  .options {
+    background: white;
+    display: flex;
+    align-items: baseline;
+    margin-top: 1em;
+
+    > div:first-child {
+      font-size: 1.3em;
+      margin: 0em 0.7em 0em 0.3em;
+
+      i {
+        color: #393e46;
+        animation: arrow-move 1.2s infinite;
+
+        @keyframes arrow-move {
+          0% {
+            transform: translateY(4px);
+          }
+          50% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(4px);
+          }
+        }
+      }
+    }
+
+    p {
+      padding: $standard-padding;
+      margin-right: 0.8em !important;
+      @include bot;
+      border-radius: $bubble-border-radius;
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .dummy-div {
+    padding: 0.5em 0;
+  }
+}

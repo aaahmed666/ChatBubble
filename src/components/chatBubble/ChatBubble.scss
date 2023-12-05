@@ -1,0 +1,84 @@
+@mixin form-component-style {
+  border-radius: 10px;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.chat-container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0.5px solid #d8d8d8;
+  padding: 2em;
+  border-radius: 10px;
+  margin: 0px 25px;
+  align-items: flex-end;
+  position: relative;
+  z-index: 4;
+  top: -100px;
+
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+
+    input {
+      width: 100%;
+      border-style: none;
+      border: 0.5px solid #393e46;
+      @include form-component-style;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      background: #e5dfdf;
+      color: #393e46;
+      border-style: none;
+      @include form-component-style;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.close-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-message {
+  margin-bottom: 1em !important;
+}
+
+.close-message,
+.send-message,
+.file-upload-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #e5dfdf;
+  margin: 0 5px;
+  border-radius: 4px;
+  color: #000;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.mobile {
+  width: 100vw !important;
+  height: 85vh !important;
+}

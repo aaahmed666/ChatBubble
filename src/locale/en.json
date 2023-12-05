@@ -1,0 +1,9 @@
+{
+  "specify_field": "specify field",
+  "nice": "Nice to meet you,",
+  "feel": "It feels like I know you already. We have some job positions for you. Which of these call out to you?",
+  "welcome": "Hi there. If you're here, that means you're looking for a job. Tell me, what's your name?",
+  "Frontend": "Frontends",
+  "Backend": "Backends",
+  "Full Stack": "Full Stacks"
+}
