@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/aaahmed666/ChatBubble/static/css/main.ca25cb0d.css",
+    "main.js": "/aaahmed666/ChatBubble/static/js/main.1ef769ad.js",
+    "static/media/Facebook-Notification.mp3": "/aaahmed666/ChatBubble/static/media/Facebook-Notification.d5ba43f1ac9ae9342ccc.mp3",
+    "index.html": "/aaahmed666/ChatBubble/index.html",
+    "main.ca25cb0d.css.map": "/aaahmed666/ChatBubble/static/css/main.ca25cb0d.css.map",
+    "main.1ef769ad.js.map": "/aaahmed666/ChatBubble/static/js/main.1ef769ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca25cb0d.css",
+    "static/js/main.1ef769ad.js"
+  ]
+}
