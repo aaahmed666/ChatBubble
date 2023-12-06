@@ -42,8 +42,7 @@ const Chats: React.FC<Props> = (props) => {
       setMessages([
         {
           purpose: "introduction",
-          message:
-            "Hi there. If you're here, that means you're looking for a job. Tell me, what's your name?",
+          message: "Look_job",
           sender: "bot",
         },
       ]);
@@ -77,8 +76,6 @@ const Chats: React.FC<Props> = (props) => {
   const ImageThumb = ({ image }) => {
     return image && <img src={URL.createObjectURL(image)} alt={image.name} />;
   };
-
-  console.log(messages, "sadddddd");
 
   return (
     <div className="message-container" ref={bodyRef}>

@@ -11,8 +11,10 @@ function App() {
 
   const changeLng = (lng) => {
     i18next.changeLanguage(lng);
+    document.body.dir = i18n.dir();
   };
 
+  console.log(document.body.dir);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
