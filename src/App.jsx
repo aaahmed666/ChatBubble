@@ -26,8 +26,8 @@ function App() {
   const mockMessages = [
     { type: "text", content: "Hello", sender: "user1", image: user1 },
     { type: "text", content: "Hi there", sender: "user2", image: user2 },
-    { type: "voice", content: voice, sender: "user2" },
-    { type: "image", content: currentUser, sender: "user1" },
+    { type: "voice", content: voice, sender: "user2", image: user2 },
+    { type: "image", content: currentUser, sender: "user1", image: user1 },
   ];
 
   return (

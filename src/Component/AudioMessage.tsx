@@ -1,15 +1,21 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import currentUser from "../image/robot-chat-bot-concept-illustration-vector.jpg";
 interface Props {
   voice: string;
   sender?: string;
+  image?: string;
 }
 
-const ImageMessage: React.FC<Props> = ({ voice, sender }) => {
+const ImageMessage: React.FC<Props> = ({ voice, sender, image }) => {
   const { t } = useTranslation();
 
   return (
     <>
+      <img
+        src={sender == "CurrentUser" ? currentUser : image}
+        alt="userimage"
+      />
       <audio
         className={sender === "CurrentUser" ? "voice-sender" : "voice"}
         controls

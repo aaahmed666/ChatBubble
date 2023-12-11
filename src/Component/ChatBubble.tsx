@@ -107,8 +107,20 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
           image={image || ""}
         />
       ),
-      image: <ImageMessage image={content || ""} sender={sender || ""} />,
-      voice: <AudioMessage voice={content || ""} sender={sender || ""} />,
+      image: (
+        <ImageMessage
+          image={content || ""}
+          sender={sender || ""}
+          avatar={image || ""}
+        />
+      ),
+      voice: (
+        <AudioMessage
+          voice={content || ""}
+          sender={sender || ""}
+          image={image || ""}
+        />
+      ),
     };
 
     return data[type];
