@@ -10,6 +10,7 @@ import { IoMdSend } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
 interface Message {
+  image: string | undefined;
   type: "text" | "image" | "voice";
   content: string;
   sender: string;
@@ -23,11 +24,10 @@ interface ChatBubbleProps {
   handleClose: () => boolean;
 }
 
-type MessageType = "text" | "image" | "voice";
+type MessageType = "text" | "image" | "voice" | "custom";
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({
   title,
-  currentUser,
   accentColor,
   messages,
   handleClose,
@@ -50,6 +50,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         type: file.type.startsWith("image/") ? "image" : "voice",
         content: URL.createObjectURL(file),
         sender: "CurrentUser",
+        image: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
       setFileInput(null);
@@ -71,6 +72,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         type: file.type.startsWith("image/") ? "image" : "voice",
         content: URL.createObjectURL(file),
         sender: "CurrentUser",
+        image: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
 
@@ -85,6 +87,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         type: "text",
         content: inputValue,
         sender: "CurrentUser",
+        image: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
       setInputValue("");
@@ -121,9 +124,10 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
           image={image || ""}
         />
       ),
+      custom: <div>{content}</div>,
     };
 
-    return data[type];
+    return data[type] || data.custom;
   };
 
   useEffect(() => {

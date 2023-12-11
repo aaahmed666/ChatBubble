@@ -60,13 +60,15 @@ function App() {
         <FaRocketchat />
       </button>
       <div className="app">
-        <ChatBubble
-          title="Chat Bubble"
-          currentUser={currentUser}
-          accentColor="#6ea4c8"
-          messages={mockMessages}
-          handleClose={handleClose}
-        />
+        {show && (
+          <ChatBubble
+            title="Chat Bubble"
+            currentUser={currentUser}
+            accentColor="#6ea4c8"
+            messages={mockMessages}
+            handleClose={handleClose}
+          />
+        )}
       </div>
     </main>
   );
