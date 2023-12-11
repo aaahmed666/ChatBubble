@@ -1,21 +1,7 @@
 {
-  "Frontend": "Frontend",
-  "Backend": "Backend",
-  "Full Stack": "Full Stack",
-  "Look_job": "Hi there. If you're here, that means you're looking for a job. Tell me, what's your name?",
-  "jobs": "It feels like I know you already. We have some job positions for you. Which of these call out to you?",
-  "field": "That's cool! Could you describe your experience in that field?",
-  "project": "Did you do any projects that you're proud of? Can you tell me more about them? (class projects are cool too...)",
-  "thanks": "Thanks for telling me that. Let's get personal... (just kidding). Could you tell me about yourself? How would you describe your personality?",
-  "explain": "Do you want me to explain what we do?",
-  "what_we_do": "Oh yay! This is what we do...",
-  "guess": "Aww... Well I guess you know what we do already.",
-  "what_we_do_now": "Now that you know what we do, how about you tell me why you want to work for us?",
-  "Alright": "Alright, noted! One last question before we finish, besides coding/working, what do you do?",
-  "sound": "That sounds awesome! Right, it looks like we've got your application set. I would need your email to contact you if you're a good fit for this role!",
-  "soon": "Thank you so much for spending time chatting with me. Good luck with the application process! I hope we can meet soon. Bye!",
-  "bye": "bye",
-  "Keep going": "Keep going",
-  "Yeah sure": "Yeah sure",
-  "pass": "Meh, I'll pass"
+  "Hello": "Hello",
+  "Hi there": "Hi there",
+  "user1": "user1",
+  "user2": "user2",
+  "CurrentUser": "CurrentUser"
 }

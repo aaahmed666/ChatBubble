@@ -21,8 +21,8 @@ function App() {
   const handleShow = () => setShow(true);
 
   const mockMessages = [
-    { type: "text", content: "Hello!", sender: "user1" },
-    { type: "text", content: "Hi there!", sender: "user2" },
+    { type: "text", content: "Hello", sender: "user1" },
+    { type: "text", content: "Hi there", sender: "user2" },
   ];
 
   return (
