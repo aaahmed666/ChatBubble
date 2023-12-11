@@ -8,6 +8,7 @@ import { FaRocketchat } from "react-icons/fa";
 import user1 from "./image/istockphoto-1337144146-612x612.jpg";
 import user2 from "./image/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile-thumbnail.png";
 import currentUser from "./image/robot-chat-bot-concept-illustration-vector.jpg";
+import voice from "./sound/Facebook-Notification.mp3";
 
 function App() {
   const [t, i18n] = useTranslation();
@@ -23,8 +24,10 @@ function App() {
   const handleShow = () => setShow(true);
 
   const mockMessages = [
-    { type: "text", content: "Hello", sender: "user1" },
-    { type: "text", content: "Hi there", sender: "user2" },
+    { type: "text", content: "Hello", sender: "user1", image: user1 },
+    { type: "text", content: "Hi there", sender: "user2", image: user2 },
+    { type: "voice", content: voice, sender: "user2" },
+    { type: "image", content: currentUser, sender: "user1" },
   ];
 
   return (
@@ -59,8 +62,6 @@ function App() {
       <div className="app">
         <ChatBubble
           title="Chat Bubble"
-          user1={user1}
-          user2={user2}
           currentUser={currentUser}
           accentColor="#6ea4c8"
           messages={mockMessages}

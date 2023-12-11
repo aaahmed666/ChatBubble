@@ -17,8 +17,6 @@ interface Message {
 
 interface ChatBubbleProps {
   title: string;
-  user1: string;
-  user2: string;
   currentUser: string;
   accentColor: string;
   messages: Message[];
@@ -29,8 +27,6 @@ type MessageType = "text" | "image" | "voice";
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({
   title,
-  user1,
-  user2,
   currentUser,
   accentColor,
   messages,
@@ -99,17 +95,16 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
   const chatData = (
     type: MessageType,
     content?: string,
-    sender?: string
+    sender?: string,
+    image?: string
   ): React.ReactNode => {
     const data: Record<MessageType, React.ReactNode> = {
       text: (
         <TextMessage
           title={content || ""}
           sender={sender || ""}
-          user1={user1 || ""}
-          user2={user2 || ""}
-          currentUser={currentUser || ""}
           accentColor={accentColor || ""}
+          image={image || ""}
         />
       ),
       image: <ImageMessage image={content || ""} sender={sender || ""} />,
@@ -150,7 +145,12 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
       <div ref={chatContainerRef} className="message-scroll ">
         {messageList.map((message, index) => (
           <div className={`message ${message.sender}`} key={index}>
-            {chatData(message.type, message.content, message.sender)}
+            {chatData(
+              message.type,
+              message.content,
+              message.sender,
+              message.image
+            )}
           </div>
         ))}
       </div>
