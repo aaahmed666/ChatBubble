@@ -10,6 +10,7 @@ import { IoMdSend } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
 interface Message {
+  accentColor: string | undefined;
   image: string | undefined;
   type: "text" | "image" | "voice";
   content: string;
@@ -26,12 +27,7 @@ interface ChatBubbleProps {
 
 type MessageType = "text" | "image" | "voice" | "custom";
 
-const ChatBubble: React.FC<ChatBubbleProps> = ({
-  title,
-  accentColor,
-  messages,
-  handleClose,
-}) => {
+const ChatBubble: React.FC<ChatBubbleProps> = ({ messages, handleClose }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [fileInput, setFileInput] = useState<HTMLInputElement | null>(null);
@@ -51,6 +47,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         content: URL.createObjectURL(file),
         sender: "CurrentUser",
         image: undefined,
+        accentColor: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
       setFileInput(null);
@@ -73,6 +70,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         content: URL.createObjectURL(file),
         sender: "CurrentUser",
         image: undefined,
+        accentColor: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
 
@@ -88,6 +86,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
         content: inputValue,
         sender: "CurrentUser",
         image: undefined,
+        accentColor: undefined,
       };
       setMessageList((prevMessages) => [...prevMessages, newMessage]);
       setInputValue("");
@@ -99,7 +98,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
     type: MessageType,
     content?: string,
     sender?: string,
-    image?: string
+    image?: string,
+    accentColor?: string
   ): React.ReactNode => {
     const data: Record<MessageType, React.ReactNode> = {
       text: (
@@ -155,9 +155,6 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
       <button className="close-message" onClick={handleClose}>
         <IoCloseSharp />
       </button>
-      <div className="chat-bubble">
-        <h2>{title}</h2>
-      </div>
       <div ref={chatContainerRef} className="message-scroll ">
         {messageList.map((message, index) => (
           <div className={`message ${message.sender}`} key={index}>
@@ -165,7 +162,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
               message.type,
               message.content,
               message.sender,
-              message.image
+              message.image,
+              message.accentColor
             )}
           </div>
         ))}

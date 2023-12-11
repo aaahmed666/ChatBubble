@@ -24,8 +24,20 @@ function App() {
   const handleShow = () => setShow(true);
 
   const mockMessages = [
-    { type: "text", content: "Hello", sender: "user1", image: user1 },
-    { type: "text", content: "Hi there", sender: "user2", image: user2 },
+    {
+      type: "text",
+      content: "Hello",
+      sender: "user1",
+      image: user1,
+      accentColor: "#6ea4c8",
+    },
+    {
+      type: "text",
+      content: "Hi there",
+      sender: "user2",
+      image: user2,
+      accentColor: "#aea6a6",
+    },
     { type: "voice", content: voice, sender: "user2", image: user2 },
     { type: "image", content: currentUser, sender: "user1", image: user1 },
   ];
@@ -61,13 +73,7 @@ function App() {
       </button>
       <div className="app">
         {show && (
-          <ChatBubble
-            title="Chat Bubble"
-            currentUser={currentUser}
-            accentColor="#6ea4c8"
-            messages={mockMessages}
-            handleClose={handleClose}
-          />
+          <ChatBubble messages={mockMessages} handleClose={handleClose} />
         )}
       </div>
     </main>
