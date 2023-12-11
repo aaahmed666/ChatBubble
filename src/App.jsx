@@ -2,9 +2,10 @@ import "./App.css";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import ChatBubble from "./components/chatBubble/ChatBubble.tsx";
+import ChatBubble from "./Component/ChatBubble.tsx";
 import i18next from "./i18n";
 import { FaRocketchat } from "react-icons/fa";
+import avatar from "./image/istockphoto-1337144146-612x612.jpg";
 
 function App() {
   const [t, i18n] = useTranslation();
@@ -14,11 +15,15 @@ function App() {
     document.body.dir = i18n.dir();
   };
 
-  console.log(document.body.dir);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const mockMessages = [
+    { type: "text", content: "Hello!", sender: "user1" },
+    { type: "text", content: "Hi there!", sender: "user2" },
+  ];
 
   return (
     <main>
@@ -50,7 +55,13 @@ function App() {
         <FaRocketchat />
       </button>
       <div className="app">
-        {show && <ChatBubble handleClose={handleClose} />}
+        <ChatBubble
+          title="Chat Bubble"
+          avatar={avatar}
+          accentColor="#3498db"
+          messages={mockMessages}
+          handleClose={handleClose}
+        />
       </div>
     </main>
   );
