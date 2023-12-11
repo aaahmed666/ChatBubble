@@ -7,6 +7,7 @@ import ImageMessage from "./ImageMessage.tsx";
 import AudioMessage from "./AudioMessage.tsx";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 
 interface Message {
   type: "text" | "image" | "voice";
@@ -16,7 +17,9 @@ interface Message {
 
 interface ChatBubbleProps {
   title: string;
-  avatar: string;
+  user1: string;
+  user2: string;
+  currentUser: string;
   accentColor: string;
   messages: Message[];
   handleClose: () => boolean;
@@ -26,7 +29,9 @@ type MessageType = "text" | "image" | "voice";
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({
   title,
-  avatar,
+  user1,
+  user2,
+  currentUser,
   accentColor,
   messages,
   handleClose,
@@ -97,7 +102,16 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
     sender?: string
   ): React.ReactNode => {
     const data: Record<MessageType, React.ReactNode> = {
-      text: <TextMessage title={content || ""} sender={sender || ""} />,
+      text: (
+        <TextMessage
+          title={content || ""}
+          sender={sender || ""}
+          user1={user1 || ""}
+          user2={user2 || ""}
+          currentUser={currentUser || ""}
+          accentColor={accentColor || ""}
+        />
+      ),
       image: <ImageMessage image={content || ""} sender={sender || ""} />,
       voice: <AudioMessage voice={content || ""} sender={sender || ""} />,
     };
@@ -128,11 +142,10 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
   return (
     <div className={`chat-container ${isMobile ? "mobile" : ""}`}>
       <button className="close-message" onClick={handleClose}>
-        x
+        <IoCloseSharp />
       </button>
       <div className="chat-bubble">
-        <h2 style={{ color: accentColor }}>{title}</h2>
-        <img src={avatar} alt="User Avatar" />
+        <h2>{title}</h2>
       </div>
       <div ref={chatContainerRef} className="message-scroll ">
         {messageList.map((message, index) => (
