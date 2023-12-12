@@ -9,15 +9,14 @@ interface Props {
 
 const ImageMessage: React.FC<Props> = ({ image, sender, avatar }) => {
   const { t } = useTranslation();
+  const isCurrentUser = sender === "CurrentUser";
+  const senderImage = isCurrentUser ? currentUser : avatar;
 
   return (
     <>
+      <img src={senderImage} alt="userimage" />
       <img
-        src={sender == "CurrentUser" ? currentUser : avatar}
-        alt="userimage"
-      />
-      <img
-        className={sender === "CurrentUser" ? "image-sender" : "image"}
+        className={isCurrentUser ? "image-sender" : "image"}
         src={image}
         alt="Profilepicture of the user"
       />

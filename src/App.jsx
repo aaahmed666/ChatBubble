@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,7 @@ import currentUser from "./image/robot-chat-bot-concept-illustration-vector.jpg"
 import voice from "./sound/Facebook-Notification.mp3";
 
 function App() {
-  const [t, i18n] = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLng = (lng) => {
     i18next.changeLanguage(lng);

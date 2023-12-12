@@ -16,18 +16,17 @@ const TextMessage: React.FC<Props> = ({
   image,
 }) => {
   const { t } = useTranslation();
+  const isCurrentUser = sender === "CurrentUser";
+  const senderImage = isCurrentUser ? currentUser : image;
 
   return (
     <>
-      <img
-        src={sender == "CurrentUser" ? currentUser : image}
-        alt="userimage"
-      />
+      <img src={senderImage} alt="userimage" />
       <div>
         {t(sender)}
         <p
           style={{ color: accentColor ?? "#fff" }}
-          className={sender === "CurrentUser" ? "title-sender" : "title"}
+          className={isCurrentUser ? "title-sender" : "title"}
         >
           {t(title)}
         </p>

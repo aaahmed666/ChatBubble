@@ -9,17 +9,13 @@ interface Props {
 
 const ImageMessage: React.FC<Props> = ({ voice, sender, image }) => {
   const { t } = useTranslation();
+  const isCurrentUser = sender === "CurrentUser";
+  const senderImage = isCurrentUser ? currentUser : image;
 
   return (
     <>
-      <img
-        src={sender == "CurrentUser" ? currentUser : image}
-        alt="userimage"
-      />
-      <audio
-        className={sender === "CurrentUser" ? "voice-sender" : "voice"}
-        controls
-      >
+      <img src={senderImage} alt="userimage" />
+      <audio className={isCurrentUser ? "voice-sender" : "voice"} controls>
         <source src={voice} type="audio/mp3" />
       </audio>
       {t(sender)}
